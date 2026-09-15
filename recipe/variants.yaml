@@ -3,17 +3,23 @@
 fortran_compiler_version:
   - "14"
   - "15"
+
 c_compiler_version:
   - if: linux
     then: "14"
-    else: "21"
   - if: linux
     then: "15"
-    else: "21"
+  - if: osx
+    then: "21"
+  - if: osx
+    then: "21"
+
 cxx_compiler_version:
   - if: linux
     then: "14"
-    else: "21"
   - if: linux
     then: "15"
-    else: "21"
+  - if: osx
+    then: "21"
+  - if: osx
+    then: "21"
