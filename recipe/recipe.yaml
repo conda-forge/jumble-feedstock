@@ -12,7 +12,7 @@ source:
 build:
   skip:
     - win
-  number: 0
+  number: 1
 
 requirements:
   build:
@@ -20,6 +20,9 @@ requirements:
     - ${{ stdlib('c') }}
     - cmake
     - make
+  run_constraints:
+    # .mod files built with gfortran 15 cannot be read by older gfortran versions.
+    - gfortran_impl_${{ target_platform }} >=15
   run_exports:
     - ${{ pin_subpackage("jumble", upper_bound="x.x.x") }}
 
