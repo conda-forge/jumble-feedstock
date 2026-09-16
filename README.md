@@ -39,17 +39,10 @@ Current build status
         <table>
           <thead><tr><th>Variant</th><th>Status</th></tr></thead>
           <tbody><tr>
-              <td>osx_64_fortran_compiler_version14</td>
+              <td>osx_64</td>
               <td>
                 <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=29522&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/jumble-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_fortran_compiler_version14" alt="variant">
-                </a>
-              </td>
-            </tr><tr>
-              <td>osx_64_fortran_compiler_version15</td>
-              <td>
-                <a href="https://dev.azure.com/conda-forge/feedstock-builds/_build/latest?definitionId=29522&branchName=main">
-                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/jumble-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_fortran_compiler_version15" alt="variant">
+                  <img src="https://dev.azure.com/conda-forge/feedstock-builds/_apis/build/status/jumble-feedstock?branchName=main&jobName=osx&configuration=osx%20osx_64_" alt="variant">
                 </a>
               </td>
             </tr>
