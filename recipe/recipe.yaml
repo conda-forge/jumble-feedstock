@@ -12,7 +12,7 @@ source:
 build:
   skip:
     - win
-  number: 1
+  number: 2
 
 requirements:
   build:
@@ -20,9 +20,6 @@ requirements:
     - ${{ stdlib('c') }}
     - cmake
     - make
-  run_constraints:
-    # .mod files built with gfortran 15 cannot be read by older gfortran versions.
-    - gfortran_impl_${{ target_platform }} >=15
   run_exports:
     - ${{ pin_subpackage("jumble", upper_bound="x.x.x") }}
 
@@ -30,10 +27,30 @@ tests:
   - package_contents:
       lib:
         - jumble
+      include:
+        - jumble.mod
+
+  # Test with the compiler used to build Jumble.
+  - script: tests/consumer.sh
+    requirements:
+      build:
+        - ${{ compiler('fortran') }}
+
+  # Check compatibility with gfortran 13.
+  - script: tests/consumer.sh
+    requirements:
+      build:
+        - gfortran_${{ target_platform }} 13.*
+
+  # Check forward compatibility with gfortran 15.
+  - script: tests/consumer.sh
+    requirements:
+      build:
+        - gfortran_${{ target_platform }} 15.*
 
 about:
   homepage: https://github.com/lguez/Jumble
-  summary: 'A library of various utilities in Fortran 2003'
+  summary: "A library of various utilities in Fortran 2003"
   description: |
     Jumble is a library of various utilities in Fortran 2003, basic
     mathematical constants and basic procedures for numerical tasks.
