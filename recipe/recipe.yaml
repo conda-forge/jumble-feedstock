@@ -1,6 +1,5 @@
 context:
   version: "0.2"
-  build_number: 2
 
 package:
   name: jumble
@@ -13,8 +12,7 @@ source:
 build:
   skip:
     - win
-  number: ${{ build_number }}
-  string: gfortran${{ fortran_compiler_version }}_h${{ hash }}_${{ build_number }}
+  number: 2
 
 requirements:
   build:
