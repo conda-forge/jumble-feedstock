@@ -1,23 +1,4 @@
-# Keep the compiler versions aligned with the global compiler zip_keys.
-# macOS uses Clang for C/C++ alongside both gfortran variants.
+# Build Jumble with gfortran 14 so that its .mod file can be read by
+# gfortran 13, 14, and 15.
 fortran_compiler_version:
   - "14"
-  - "15"
-c_compiler_version:
-  - if: linux
-    then: 
-      - "14"
-      - "15"
-  - if: osx
-    then:
-      - "21"
-      - "21"
-cxx_compiler_version:
-  - if: linux
-    then:
-      - "14"
-      - "15"
-  - if: osx
-    then:
-      - "21"
-      - "21"
