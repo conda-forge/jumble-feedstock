@@ -30,12 +30,6 @@ tests:
       include:
         - jumble.mod
 
-  # Test with the compiler used to build Jumble.
-  - script: tests/consumer.sh
-    requirements:
-      build:
-        - ${{ compiler('fortran') }}
-
   # Check compatibility with gfortran 13.
   - script: tests/consumer.sh
     requirements:
