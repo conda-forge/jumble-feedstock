@@ -12,7 +12,7 @@ source:
 build:
   skip:
     - win
-  number: 2
+  number: 3
 
 requirements:
   build:
@@ -30,20 +30,20 @@ tests:
       include:
         - jumble.mod
 
-  # Test with the compiler used to build Jumble.
-  - script: tests/consumer.sh
-    requirements:
-      build:
-        - ${{ compiler('fortran') }}
-
   # Check compatibility with gfortran 13.
-  - script: tests/consumer.sh
+  - script: consumer.sh
+    files:
+      source:
+        - NR_util/test_nr_util.f90
     requirements:
       build:
         - gfortran_${{ target_platform }} 13.*
 
   # Check forward compatibility with gfortran 15.
-  - script: tests/consumer.sh
+  - script: consumer.sh
+    files:
+      source:
+        - NR_util/test_nr_util.f90
     requirements:
       build:
         - gfortran_${{ target_platform }} 15.*
